@@ -1,14 +1,16 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Pedido {
 
     @Id
+    @Column(name = "PEDIDO_ID")
     private Long pedidoID;
 
     private Date fecha;
@@ -21,6 +23,19 @@ public class Pedido {
 
     @ManyToOne
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "pedido")
+    private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
+
+
+
+    public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
+        return pedidoDomiciliarioList;
+    }
+
+    public void setPedidoDomiciliarioList(Set<PedidoDomiciliario> pedidoDomiciliarioList) {
+        this.pedidoDomiciliarioList = pedidoDomiciliarioList;
+    }
 
     public Cliente getCliente() {
         return cliente;

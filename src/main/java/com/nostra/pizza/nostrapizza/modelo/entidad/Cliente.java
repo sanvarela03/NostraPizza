@@ -1,15 +1,16 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Cliente {
+@Table(name = "CLIENTES")
+public class Cliente implements Serializable {
 
     @Id
-    private Long Id;
+    @Column(name = "CLIENTE_ID")
+    private Long id;
     private String nombre;
     private String correo;
     private String password;
@@ -28,11 +29,11 @@ public class Cliente {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getNombre() {
