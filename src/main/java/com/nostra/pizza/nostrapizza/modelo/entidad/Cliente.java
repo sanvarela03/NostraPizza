@@ -2,8 +2,6 @@ package com.nostra.pizza.nostrapizza.modelo.entidad;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
 
 @Entity
 public class Cliente {
@@ -15,17 +13,6 @@ public class Cliente {
     private String password;
     private String celular;
 
-
-    @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedidos;
-
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
 
     public Long getId() {
         return Id;
