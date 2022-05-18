@@ -16,6 +16,7 @@ public class Producto implements Serializable {
 
     private String descripcion;
 
+
     private boolean esVisible;
 
     public Long getId() {
