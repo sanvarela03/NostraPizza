@@ -2,6 +2,8 @@ package com.nostra.pizza.nostrapizza.modelo.entidad;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "PEDIDOS")
@@ -9,11 +11,23 @@ public class Pedido {
 
     @Id
     @Column(name = "PEDIDO_ID")
-    private Long pedidoID;
+    private Long id;
 
     private Date fecha;
 
     private int calificacion;
+
+
+    @OneToMany(mappedBy = "pedido")
+    private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
+
+    public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
+        return pedidoDomiciliarioList;
+    }
+
+    public void setPedidoDomiciliarioList(Set<PedidoDomiciliario> pedidoDomiciliarioList) {
+        this.pedidoDomiciliarioList = pedidoDomiciliarioList;
+    }
 
     @ManyToOne
     private MetodoDePago metodoDePago;
@@ -38,12 +52,12 @@ public class Pedido {
     }
 
 
-    public Long getPedidoID() {
-        return pedidoID;
+    public Long getId() {
+        return id;
     }
 
-    public void setPedidoID(Long id) {
-        this.pedidoID = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Date getFecha() {
