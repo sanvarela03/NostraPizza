@@ -22,14 +22,6 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>();
 
-    public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
-        return pedidoDomiciliarioList;
-    }
-
-    public void setPedidoDomiciliarioList(Set<PedidoDomiciliario> pedidoDomiciliarioList) {
-        this.pedidoDomiciliarioList = pedidoDomiciliarioList;
-    }
-
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoEstadoEntrega> pedidoEstadoEntregas = new HashSet<PedidoEstadoEntrega>();
     @ManyToOne
