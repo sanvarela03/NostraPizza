@@ -18,6 +18,18 @@ public class Pedido {
     @ManyToOne
     private MetodoDePago metodoDePago;
 
+
+    @ManyToOne
+    private Cliente cliente;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public MetodoDePago getMetodoDePago() {
         return metodoDePago;
     }
