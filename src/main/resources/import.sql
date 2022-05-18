@@ -1,0 +1,1 @@
+INSERT INTO producto (descripcion, es_visible, nombre, precio) VALUES ("Pizza napolitana, tomates, queso, oregano", true, "PIZZA-NAPOLITANA-GRANDE", 36000)
