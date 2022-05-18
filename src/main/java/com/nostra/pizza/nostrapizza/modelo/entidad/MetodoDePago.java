@@ -1,15 +1,14 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "METODO_DE_PAGO")
 public class MetodoDePago {
 
     @Id
+    @Column(name = "METODO_PAGO_ID")
     private Long metodoPagoID;
 
     private String nombre;

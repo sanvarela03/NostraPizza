@@ -1,18 +1,31 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "CLIENTES")
 public class Cliente {
 
     @Id
+    @Column(name = "CLIENTE_ID")
     private Long Id;
     private String nombre;
     private String correo;
     private String password;
     private String celular;
 
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos;
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 
     public Long getId() {
         return Id;

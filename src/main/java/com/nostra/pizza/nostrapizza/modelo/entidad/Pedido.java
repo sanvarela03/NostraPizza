@@ -1,14 +1,14 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "PEDIDOS")
 public class Pedido {
 
     @Id
+    @Column(name = "PEDIDO_ID")
     private Long pedidoID;
 
     private Date fecha;
@@ -17,6 +17,17 @@ public class Pedido {
 
     @ManyToOne
     private MetodoDePago metodoDePago;
+
+    @ManyToOne
+    private Cliente cliente;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
     public MetodoDePago getMetodoDePago() {
         return metodoDePago;

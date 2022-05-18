@@ -1,19 +1,16 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "DOMICILIARIOS")
 public class Domiciliario {
     @Id
     @Column(name = "DOMICILIARIO_ID")
-    private Long idDomiciliario;
+    private Long id;
 
     private String nombre;
 
@@ -22,8 +19,7 @@ public class Domiciliario {
     private Boolean disponible;
 
     @OneToMany(mappedBy = "domiciliario")
-    private Set<PedidoDomiciliario> pedidoDomiciliarioList  = new HashSet<PedidoDomiciliario>();
-
+    private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
 
 
     public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
@@ -59,11 +55,11 @@ public class Domiciliario {
     }
 
 
-    public Long getIdDomiciliario() {
-        return idDomiciliario;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdDomiciliario(Long idDomiciliario) {
-        this.idDomiciliario = idDomiciliario;
+    public void setId(Long idDomiciliario) {
+        this.id = idDomiciliario;
     }
 }
