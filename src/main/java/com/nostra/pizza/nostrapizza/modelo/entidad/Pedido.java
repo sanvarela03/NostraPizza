@@ -21,6 +21,9 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
 
+    @OneToMany(mappedBy = "pedido")
+    private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>();
+
     public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
         return pedidoDomiciliarioList;
     }
@@ -74,5 +77,13 @@ public class Pedido {
 
     public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
+    }
+
+    public Set<PedidoProducto> getPedidoProductos() {
+        return pedidoProductos;
+    }
+
+    public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
+        this.pedidoProductos = pedidoProductos;
     }
 }
