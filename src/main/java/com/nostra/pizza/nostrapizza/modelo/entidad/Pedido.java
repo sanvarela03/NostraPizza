@@ -8,33 +8,24 @@ import java.util.Set;
 @Entity
 @Table(name = "PEDIDOS")
 public class Pedido {
-
+    //ATRIBUTOS PRIMITIVOS
     @Id
     @Column(name = "PEDIDO_ID")
     private Long id;
-
     private Date fecha;
-
     private int calificacion;
 
-
+    //RELACIONES
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
-
-    public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
-        return pedidoDomiciliarioList;
-    }
-
-    public void setPedidoDomiciliarioList(Set<PedidoDomiciliario> pedidoDomiciliarioList) {
-        this.pedidoDomiciliarioList = pedidoDomiciliarioList;
-    }
-
+    @OneToMany(mappedBy = "pedido")
+    private Set<PedidoEstadoEntrega> pedidoEstadoEntregas = new HashSet<PedidoEstadoEntrega>();
     @ManyToOne
     private MetodoDePago metodoDePago;
-
     @ManyToOne
     private Cliente cliente;
 
+    //GETTERS Y SETTERS
     public Cliente getCliente() {
         return cliente;
     }
@@ -50,7 +41,6 @@ public class Pedido {
     public void setMetodoDePago(MetodoDePago metodoDePago) {
         this.metodoDePago = metodoDePago;
     }
-
 
     public Long getId() {
         return id;
@@ -74,5 +64,22 @@ public class Pedido {
 
     public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
+    }
+
+    public Set<PedidoEstadoEntrega> getPedidoEstadoEntregas() {
+        return pedidoEstadoEntregas;
+    }
+
+    public void setPedidoEstadoEntregas(Set<PedidoEstadoEntrega> pedidoEstadoEntregas) {
+        this.pedidoEstadoEntregas = pedidoEstadoEntregas;
+    }
+
+
+    public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
+        return pedidoDomiciliarioList;
+    }
+
+    public void setPedidoDomiciliarioList(Set<PedidoDomiciliario> pedidoDomiciliarioList) {
+        this.pedidoDomiciliarioList = pedidoDomiciliarioList;
     }
 }

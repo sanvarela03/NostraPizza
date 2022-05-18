@@ -2,16 +2,23 @@ package com.nostra.pizza.nostrapizza.modelo.entidad;
 
 import com.nostra.pizza.nostrapizza.modelo.entidad.enums.EstadoEntrega;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class EstadoDeEntrega {
 
     @Id
+    @Column(name = "ESTADO_ENTREGA_ID")
     private Long id;
 
-    private EstadoEntrega estadoEntrega;
 
+    @OneToMany(mappedBy = "estadoDeEntrega")
+    private Set<PedidoEstadoEntrega> pedidoEstadoEntregas = new HashSet<PedidoEstadoEntrega>();
 
     public Long getId() {
         return id;
@@ -21,11 +28,11 @@ public class EstadoDeEntrega {
         this.id = id;
     }
 
-    public EstadoEntrega getEstadoEntrega() {
-        return estadoEntrega;
+    public Set<PedidoEstadoEntrega> getPedidoEstadoEntregas() {
+        return pedidoEstadoEntregas;
     }
 
-    public void setEstadoEntrega(EstadoEntrega estadoEntrega) {
-        this.estadoEntrega = estadoEntrega;
+    public void setPedidoEstadoEntregas(Set<PedidoEstadoEntrega> pedidoEstadoEntregas) {
+        this.pedidoEstadoEntregas = pedidoEstadoEntregas;
     }
 }
