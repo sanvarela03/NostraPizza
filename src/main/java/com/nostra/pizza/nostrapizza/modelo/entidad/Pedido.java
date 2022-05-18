@@ -18,6 +18,18 @@ public class Pedido {
     //RELACIONES
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
+
+    @OneToMany(mappedBy = "pedido")
+    private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>();
+
+    public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
+        return pedidoDomiciliarioList;
+    }
+
+    public void setPedidoDomiciliarioList(Set<PedidoDomiciliario> pedidoDomiciliarioList) {
+        this.pedidoDomiciliarioList = pedidoDomiciliarioList;
+    }
+
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoEstadoEntrega> pedidoEstadoEntregas = new HashSet<PedidoEstadoEntrega>();
     @ManyToOne
@@ -41,6 +53,7 @@ public class Pedido {
     public void setMetodoDePago(MetodoDePago metodoDePago) {
         this.metodoDePago = metodoDePago;
     }
+
 
     public Long getId() {
         return id;
@@ -81,5 +94,13 @@ public class Pedido {
 
     public void setPedidoDomiciliarioList(Set<PedidoDomiciliario> pedidoDomiciliarioList) {
         this.pedidoDomiciliarioList = pedidoDomiciliarioList;
+    }
+
+    public Set<PedidoProducto> getPedidoProductos() {
+        return pedidoProductos;
+    }
+
+    public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
+        this.pedidoProductos = pedidoProductos;
     }
 }

@@ -2,11 +2,13 @@ package com.nostra.pizza.nostrapizza.modelo.entidad;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Producto implements Serializable {
     @Id
-    @Column(name = "id_producto")
+    @Column(name = "PRODUCTO_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -16,8 +18,10 @@ public class Producto implements Serializable {
 
     private String descripcion;
 
-
     private boolean esVisible;
+
+    @OneToMany(mappedBy = "producto")
+    private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>();
 
     public Long getId() {
         return id;
@@ -57,6 +61,14 @@ public class Producto implements Serializable {
 
     public void setEsVisible(boolean esVisible) {
         this.esVisible = esVisible;
+    }
+
+    public Set<PedidoProducto> getPedidoProductos() {
+        return pedidoProductos;
+    }
+
+    public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
+        this.pedidoProductos = pedidoProductos;
     }
 
     /**
