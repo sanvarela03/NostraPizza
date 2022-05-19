@@ -3,6 +3,8 @@ package com.nostra.pizza.nostrapizza.modelo.entidad;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Sucursal {
@@ -12,6 +14,9 @@ public class Sucursal {
     private String nombre;
     private Long costoEnvioKM;
 
+
+    @OneToMany(mappedBy = "sucursal")
+    private List<Pedido> pedidos;
 
     public Long getId() {
         return id;
@@ -35,5 +40,12 @@ public class Sucursal {
 
     public void setCostoEnvioKM(Long costoEnvioKM) {
         this.costoEnvioKM = costoEnvioKM;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 }

@@ -29,6 +29,9 @@ public class Pedido {
     @ManyToOne
     private Cliente cliente;
 
+    @ManyToOne
+    private Sucursal sucursal;
+
     //GETTERS Y SETTERS
     public Cliente getCliente() {
         return cliente;
@@ -94,5 +97,13 @@ public class Pedido {
 
     public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
         this.pedidoProductos = pedidoProductos;
+    }
+
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
     }
 }
