@@ -5,20 +5,30 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "PEDIDO_ESTADO_ENTREGA")
-public class PedidoEstadoEntrega implements Serializable {
+@Table(name = "pedidos_estados_de_entrega")
+public class PedidoEstadoDeEntrega implements Serializable {
+
+    //ATRIBUTOS
     @Id
-    @Column(name = "PEDIDO_ESTADO_ENTREGA_ID")
+    @Column(name = "pedido_estado_de_entrega_id")
     private Long id;
 
+    //RELACIONES
     @ManyToOne
-    @JoinColumn(name = "PEDIDO_ID")
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
-
     @ManyToOne
-    @JoinColumn(name = "ESTADO_ENTREGA_ID")
+    @JoinColumn(name = "estado_de_entrega_id")
     private EstadoDeEntrega estadoDeEntrega;
 
+    //GET Y SET
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Pedido getPedido() {
         return pedido;
@@ -34,13 +44,5 @@ public class PedidoEstadoEntrega implements Serializable {
 
     public void setEstadoDeEntrega(EstadoDeEntrega estadoDeEntrega) {
         this.estadoDeEntrega = estadoDeEntrega;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

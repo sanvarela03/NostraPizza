@@ -3,24 +3,29 @@ package com.nostra.pizza.nostrapizza.modelo.entidad;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "DOMICILIARIOS")
+@Table(name = "domiciliarios")
 public class Domiciliario {
+
+    //ATRIBUTOS
     @Id
-    @Column(name = "DOMICILIARIO_ID")
+    @Column(name = "domiciliario_id")
     private Long id;
-
     private String nombre;
-
     private String celular;
-
     private Boolean disponible;
 
+    //RELACIONES
+    @OneToMany(mappedBy = "domiciliario")
+    private List<Vehiculo> vehiculos;
     @OneToMany(mappedBy = "domiciliario")
     private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
 
+
+    //GET Y SET
 
     public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
         return pedidoDomiciliarioList;
@@ -61,5 +66,13 @@ public class Domiciliario {
 
     public void setId(Long idDomiciliario) {
         this.id = idDomiciliario;
+    }
+
+    public List<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void setVehiculos(List<Vehiculo> vehiculos) {
+        this.vehiculos = vehiculos;
     }
 }

@@ -4,22 +4,24 @@ package com.nostra.pizza.nostrapizza.modelo.entidad;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "pedidos_domiciliarios")
 public class PedidoDomiciliario {
 
+    //ATRIBUTOS
     @Id
-    @Column(name = "PEDIDO_DOMICILIARIO_ID")
+    @Column(name = "pedido_domiciliario_id")
     private Long id;
-
+    private Boolean aceptado;
+    //RELACIONES
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PEDIDO_ID")
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
-
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "DOMICILIARIO_ID")
+    @JoinColumn(name = "domiciliario_id")
     private Domiciliario domiciliario;
 
-    private Boolean aceptado;
 
+    //GET Y SET
     public Boolean getAceptado() {
         return aceptado;
     }

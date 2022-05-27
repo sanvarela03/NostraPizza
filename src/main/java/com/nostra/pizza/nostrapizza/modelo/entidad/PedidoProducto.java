@@ -14,7 +14,7 @@ public class PedidoProducto {
     private Pedido pedido;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PRODUCTO_ID")
+    @JoinColumn(name = "producto_id")
     private Producto producto;
 
     private int cantidadProducto;

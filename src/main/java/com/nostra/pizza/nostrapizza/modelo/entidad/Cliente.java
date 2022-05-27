@@ -6,7 +6,7 @@ import java.util.List;
 @Entity
 @Table(name = "CLIENTES")
 public class Cliente {
-
+    //ATRIBUTOES
     @Id
     @Column(name = "CLIENTE_ID")
     private Long Id;
@@ -15,10 +15,15 @@ public class Cliente {
     private String password;
     private String celular;
 
-
+    //RELACIONES
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos;
 
+    @OneToOne
+    private Ubicacion ubicacion;
+
+
+    //GET Y SET
     public List<Pedido> getPedidos() {
         return pedidos;
     }

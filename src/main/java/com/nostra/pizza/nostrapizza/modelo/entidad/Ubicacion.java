@@ -1,18 +1,22 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-@Entity
-public class Ubicacion {
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "ubicaciones")
+public class Ubicacion {
+    //ATRIBUTOS
     @Id
+    @Column(name = "ubicacion_id")
     private Long id;
     private String ciudad;
     private String direccion;
     private String localidad;
-    private double longitud;
-    private double latitud;
 
+    //GET Y SET
     public Long getId() {
         return id;
     }
@@ -45,19 +49,4 @@ public class Ubicacion {
         this.localidad = localidad;
     }
 
-    public double getLongitud() {
-        return longitud;
-    }
-
-    public void setLongitud(double longitud) {
-        this.longitud = longitud;
-    }
-
-    public double getLatitud() {
-        return latitud;
-    }
-
-    public void setLatitud(double latitud) {
-        this.latitud = latitud;
-    }
 }

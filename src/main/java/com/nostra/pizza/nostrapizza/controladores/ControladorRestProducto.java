@@ -1,7 +1,7 @@
 package com.nostra.pizza.nostrapizza.controladores;
 
 import com.nostra.pizza.nostrapizza.modelo.entidad.Producto;
-import com.nostra.pizza.nostrapizza.modelo.servicios.IServicioProducto;
+import com.nostra.pizza.nostrapizza.modelo.servicios.producto.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ControladorRestProducto {
 
     @Autowired
-    private IServicioProducto servicioProducto;
+    private IProductoService servicioProducto;
 
     @GetMapping("/productos")
     public List<Producto> obtenerProductos() {

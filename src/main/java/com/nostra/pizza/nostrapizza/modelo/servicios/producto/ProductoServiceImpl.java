@@ -1,18 +1,16 @@
-package com.nostra.pizza.nostrapizza.modelo.servicios;
+package com.nostra.pizza.nostrapizza.modelo.servicios.producto;
 
-import com.nostra.pizza.nostrapizza.modelo.dao.IProductoDAO;
+import com.nostra.pizza.nostrapizza.modelo.dao.producto.IProductoDao;
 import com.nostra.pizza.nostrapizza.modelo.entidad.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class  ServicioProductoImpl implements IServicioProducto {
+public class ProductoServiceImpl implements IProductoService {
     @Autowired
-    private IProductoDAO dao;
+    private IProductoDao dao;
 
     @Override
     public List<Producto> encontrarTodos() {

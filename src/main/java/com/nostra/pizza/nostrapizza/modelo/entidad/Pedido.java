@@ -6,11 +6,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "PEDIDOS")
+@Table(name = "pedidos")
 public class Pedido {
-    //ATRIBUTOS PRIMITIVOS
+    //ATRIBUTOS
     @Id
-    @Column(name = "PEDIDO_ID")
+    @Column(name = "pedido_id")
     private Long id;
     private Date fecha;
     private int calificacion;
@@ -18,37 +18,18 @@ public class Pedido {
     //RELACIONES
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoDomiciliario> pedidoDomiciliarioList = new HashSet<PedidoDomiciliario>();
-
     @OneToMany(mappedBy = "pedido")
     private Set<PedidoProducto> pedidoProductos = new HashSet<PedidoProducto>();
-
     @OneToMany(mappedBy = "pedido")
-    private Set<PedidoEstadoEntrega> pedidoEstadoEntregas = new HashSet<PedidoEstadoEntrega>();
+    private Set<PedidoEstadoDeEntrega> pedidosEstadosDeEntregas = new HashSet<PedidoEstadoDeEntrega>();
     @ManyToOne
     private MetodoDePago metodoDePago;
     @ManyToOne
     private Cliente cliente;
-
     @ManyToOne
     private Sucursal sucursal;
 
     //GETTERS Y SETTERS
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public MetodoDePago getMetodoDePago() {
-        return metodoDePago;
-    }
-
-    public void setMetodoDePago(MetodoDePago metodoDePago) {
-        this.metodoDePago = metodoDePago;
-    }
-
 
     public Long getId() {
         return id;
@@ -74,15 +55,6 @@ public class Pedido {
         this.calificacion = calificacion;
     }
 
-    public Set<PedidoEstadoEntrega> getPedidoEstadoEntregas() {
-        return pedidoEstadoEntregas;
-    }
-
-    public void setPedidoEstadoEntregas(Set<PedidoEstadoEntrega> pedidoEstadoEntregas) {
-        this.pedidoEstadoEntregas = pedidoEstadoEntregas;
-    }
-
-
     public Set<PedidoDomiciliario> getPedidoDomiciliarioList() {
         return pedidoDomiciliarioList;
     }
@@ -97,6 +69,30 @@ public class Pedido {
 
     public void setPedidoProductos(Set<PedidoProducto> pedidoProductos) {
         this.pedidoProductos = pedidoProductos;
+    }
+
+    public Set<PedidoEstadoDeEntrega> getPedidoEstadoEntregas() {
+        return pedidosEstadosDeEntregas;
+    }
+
+    public void setPedidoEstadoEntregas(Set<PedidoEstadoDeEntrega> pedidoEstadoDeEntregases) {
+        this.pedidosEstadosDeEntregas = pedidoEstadoDeEntregases;
+    }
+
+    public MetodoDePago getMetodoDePago() {
+        return metodoDePago;
+    }
+
+    public void setMetodoDePago(MetodoDePago metodoDePago) {
+        this.metodoDePago = metodoDePago;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Sucursal getSucursal() {

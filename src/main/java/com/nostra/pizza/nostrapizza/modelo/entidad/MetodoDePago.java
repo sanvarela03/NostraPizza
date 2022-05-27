@@ -8,8 +8,8 @@ import java.util.List;
 public class MetodoDePago {
 
     @Id
-    @Column(name = "METODO_PAGO_ID")
-    private Long metodoPagoID;
+    @Column(name = "METODO_DE_PAGO_ID")
+    private Long id;
 
     private String nombre;
 
@@ -24,12 +24,12 @@ public class MetodoDePago {
         this.pedidos = pedidos;
     }
 
-    public Long getMetodoPagoID() {
-        return metodoPagoID;
+    public Long getId() {
+        return id;
     }
 
-    public void setMetodoPagoID(Long metodoPagoID) {
-        this.metodoPagoID = metodoPagoID;
+    public void setId(Long metodoPagoID) {
+        this.id = metodoPagoID;
     }
 
     public String getNombre() {
