@@ -4,11 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "METODO_DE_PAGO")
+@Table(name = "metodos_de_pago")
 public class MetodoDePago {
 
     @Id
-    @Column(name = "METODO_DE_PAGO_ID")
+    @Column(name = "metodo_de_pago_id")
     private Long id;
 
     private String nombre;
