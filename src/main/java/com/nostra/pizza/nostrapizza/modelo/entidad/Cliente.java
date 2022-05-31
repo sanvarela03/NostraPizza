@@ -6,7 +6,7 @@ import java.util.List;
 @Entity
 @Table(name = "CLIENTES")
 public class Cliente {
-    //ATRIBUTOES
+    //ATRIBUTOS
     @Id
     @Column(name = "CLIENTE_ID")
     private Long Id;
