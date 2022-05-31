@@ -28,6 +28,8 @@ public class Sucursal {
     @OneToMany(mappedBy = "sucursal")
     private Set<SucursalProducto> sucursalesProductos = new HashSet<SucursalProducto>();
 
+    @OneToMany(mappedBy = "sucursal")
+    private List<Administrador> administradores;
     // GET Y SET
 
     public Long getId() {
