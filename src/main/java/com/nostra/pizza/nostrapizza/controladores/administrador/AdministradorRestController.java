@@ -1,5 +1,6 @@
 package com.nostra.pizza.nostrapizza.controladores.administrador;
 
+import com.nostra.pizza.nostrapizza.modelo.dto.LoginAdministrador;
 import com.nostra.pizza.nostrapizza.modelo.entidad.Administrador;
 import com.nostra.pizza.nostrapizza.modelo.entidad.Cliente;
 import com.nostra.pizza.nostrapizza.modelo.servicios.administrador.IAdministradorService;
@@ -28,6 +29,19 @@ public class AdministradorRestController {
     @GetMapping("/administradores/{id}")
     public Administrador show(@PathVariable Long id) {
         return administradorService.findById(id);
+    }
+
+    @GetMapping("/administradores/login")
+    public Administrador show(@RequestBody LoginAdministrador loginAdministrador) {
+
+        System.out.println("u: " + loginAdministrador.getUsername());
+        System.out.println("p: " + loginAdministrador.getPassword());
+
+        Administrador administrador = administradorService.findByUserAndPass(loginAdministrador.getUsername(), loginAdministrador.getPassword());
+
+        System.out.println(administrador.toString());
+
+        return administrador;
     }
 
     @PostMapping("/administradores")

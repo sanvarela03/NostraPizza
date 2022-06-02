@@ -39,4 +39,9 @@ public class AdministradorServiceImpl implements IAdministradorService{
     public void delete(Long id) {
         dao.deleteById(id);
     }
+
+    @Override
+    public Administrador findByUserAndPass(String username, String password) {
+        return dao.findByUserAndPass(username, password);
+    }
 }

@@ -51,4 +51,17 @@ public class Administrador {
     public void setSucursal(Sucursal sucursal) {
         this.sucursal = sucursal;
     }
+
+    //METODOS
+
+
+    @Override
+    public String toString() {
+        return "Administrador{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", sucursal=" + sucursal +
+                '}';
+    }
 }
