@@ -31,7 +31,7 @@ public class AdministradorRestController {
         return administradorService.findById(id);
     }
 
-    @GetMapping("/administradores/login")
+    @PostMapping("/administradores/login")
     public Administrador show(@RequestBody LoginAdministrador loginAdministrador) {
 
         System.out.println("u: " + loginAdministrador.getUsername());
