@@ -10,6 +10,7 @@ public class Administrador {
     //ATRIBUTOS
     @Id
     @Column(name = "administrador_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     String username;
     String password;

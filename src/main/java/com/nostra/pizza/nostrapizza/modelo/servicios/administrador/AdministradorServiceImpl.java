@@ -5,10 +5,12 @@ import com.nostra.pizza.nostrapizza.modelo.dao.cliente.IClienteDao;
 import com.nostra.pizza.nostrapizza.modelo.entidad.Administrador;
 import com.nostra.pizza.nostrapizza.modelo.entidad.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class AdministradorServiceImpl implements IAdministradorService{
 
     @Autowired
