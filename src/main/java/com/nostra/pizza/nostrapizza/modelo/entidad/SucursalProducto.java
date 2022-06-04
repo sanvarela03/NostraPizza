@@ -1,9 +1,14 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "sucursales_productos")
+@Getter
+@Setter
 public class SucursalProducto {
     //ATRIBUTOS
     @Id
@@ -19,37 +24,4 @@ public class SucursalProducto {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "producto_id")
     private Producto producto;
-
-    //GET Y SET
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public boolean isEstaDisponible() {
-        return estaDisponible;
-    }
-
-    public void setEstaDisponible(boolean estaDisponible) {
-        this.estaDisponible = estaDisponible;
-    }
-
-    public Sucursal getSucursal() {
-        return sucursal;
-    }
-
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
 }

@@ -1,19 +1,30 @@
 package com.nostra.pizza.nostrapizza.modelo.entidad;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "CLIENTES")
+@Getter
+@Setter
 public class Cliente {
     //ATRIBUTOS
     @Id
     @Column(name = "CLIENTE_ID")
     private Long Id;
-    private String nombre;
+    private String cedula;
+    private String nombres ;
+    private String apellidos;
     private String correo;
+    private String username;
     private String password;
     private String celular;
+    @Column(name ="fecha_de_nacimiento")
+    private String fechaDeNacimiento;
+    private String genero;
 
     //RELACIONES
     @OneToMany(mappedBy = "cliente")
@@ -21,55 +32,4 @@ public class Cliente {
 
     @OneToOne
     private Ubicacion ubicacion;
-
-
-    //GET Y SET
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
 }

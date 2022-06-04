@@ -23,11 +23,13 @@ public class AdministradorRestController {
     //END POINTS
     @GetMapping("/administradores")
     public List<Administrador> showAll() {
+
         return administradorService.findAll();
     }
 
     @GetMapping("/administradores/{id}")
     public Administrador show(@PathVariable Long id) {
+        System.out.println("ID A BUSCAR: " + id);
         return administradorService.findById(id);
     }
 
