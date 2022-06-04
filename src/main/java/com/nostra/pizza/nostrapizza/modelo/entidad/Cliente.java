@@ -14,10 +14,11 @@ public class Cliente {
     //ATRIBUTOS
     @Id
     @Column(name = "CLIENTE_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    private String cedula;
     private String nombres ;
     private String apellidos;
+    private String cedula;
     private String correo;
     private String username;
     private String password;
